@@ -26,7 +26,7 @@ export const HeroSection = () => {
           src="/hero.jpg"
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-30"
         />
       </div>
 

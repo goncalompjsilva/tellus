@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Aurora from "@/components/Aurora";
+import LiquidEther from "@/components/LiquidEther";
 
 export const HeroSection = () => {
   const { t } = useLanguage();
@@ -21,8 +21,15 @@ export const HeroSection = () => {
 
   return (
     <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-background">
-      {/* Aurora background */}
-      <div className="absolute inset-0 z-0"></div>
+      {/* LiquidEther background */}
+      <div className="absolute inset-0 z-0">
+        <LiquidEther
+          colors={["#1db954", "#4ade80", "#a3e6b8"]}
+          autoDemo={true}
+          autoSpeed={0.4}
+          autoIntensity={2}
+        />
+      </div>
 
       {/* Centered content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 md:px-12 lg:px-20 pb-[60px]">

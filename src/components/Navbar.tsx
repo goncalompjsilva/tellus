@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { TellusLogo } from "./TellusLogo";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const FlagButton = ({
@@ -82,7 +81,11 @@ export const Navbar = () => {
         }`}
       >
         <a href="#" className="flex-shrink-0">
-          <TellusLogo color="hsl(148, 56%, 23%)" className="h-8 w-auto" />
+          <img
+            src="/src/logos/logo_plus_tellus_plus_ecocentic.png"
+            alt="Tellus Ecocentric"
+            className="w-32 h-auto"
+          />
         </a>
 
         <div className="hidden lg:flex items-center gap-8">

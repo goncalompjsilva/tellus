@@ -68,15 +68,20 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Fraunces', serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Fraunces", serif;
     color: hsl(var(--charcoal));
   }
 }
 
 /* Noise texture overlay for sections */
 .noise-texture::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   opacity: 0.02;
@@ -90,12 +95,59 @@
 .scroll-reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
 }
 
 .scroll-reveal.revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ─── Component utilities ──────────────────────────────────── */
+
+@layer components {
+  /* Eyebrow: small label used above headings */
+  .eyebrow {
+    @apply inline-block font-body text-[11px] font-semibold uppercase tracking-[0.18em] text-tellus-green;
+  }
+
+  /* Decorative horizontal rule */
+  .wavy-rule {
+    @apply block w-12 h-px bg-tellus-green opacity-40;
+  }
+
+  /* Animated underline link */
+  .nav-link-animated {
+    @apply relative inline-block pb-0.5;
+  }
+
+  /* Underline-style form inputs */
+  .input-underline {
+    @apply block w-full bg-transparent border-0 border-b border-tellus-divider py-2 font-body text-[15px] text-tellus-charcoal placeholder-tellus-muted focus:border-tellus-green focus:outline-none transition-colors duration-200;
+  }
+
+  /* Paper background for form containers */
+  .letter-paper {
+    background-color: hsl(var(--off-white));
+  }
+}
+
+/* Nav link hover underline */
+.nav-link-animated::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: hsl(var(--green-vibrant));
+  transition: width 0.3s ease;
+}
+
+.nav-link-animated:hover::after {
+  width: 100%;
 }
 
 /* Nav link underline animation */
@@ -104,7 +156,7 @@
 }
 
 .nav-link-animated::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 2px;
@@ -128,7 +180,7 @@
   background: transparent;
   padding: 12px 0;
   font-size: 17px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   color: hsl(var(--text-body));
   outline: none;
   width: 100%;
@@ -152,7 +204,7 @@
 
 /* Eyebrow label utility */
 .eyebrow {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -164,5 +216,6 @@
 .wavy-rule {
   width: 100%;
   height: 12px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 12'%3E%3Cpath d='M0 6 Q 25 0 50 6 T 100 6 T 150 6 T 200 6 T 250 6 T 300 6 T 350 6 T 400 6' stroke='%23D1E8D9' stroke-width='2' fill='none'/%3E%3C/svg%3E") repeat-x center;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 12'%3E%3Cpath d='M0 6 Q 25 0 50 6 T 100 6 T 150 6 T 200 6 T 250 6 T 300 6 T 350 6 T 400 6' stroke='%23D1E8D9' stroke-width='2' fill='none'/%3E%3C/svg%3E")
+    repeat-x center;
 }

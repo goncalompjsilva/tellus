@@ -1,4 +1,4 @@
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const UtilityBar = () => {
   const { lang, toggleLang } = useLanguage();
@@ -8,21 +8,35 @@ export const UtilityBar = () => {
       <span className="font-body text-xs text-tellus-muted hidden sm:block">
         Associação para o Ambiente e Sociedade · Nonprofit
       </span>
-      <div className="flex items-center gap-2 ml-auto">
+      <div className="flex items-center gap-1.5 ml-auto">
         <button
-          onClick={() => lang !== 'pt' && toggleLang()}
-          className={`font-body text-xs flex items-center gap-1 px-1 py-0.5 ${lang === 'pt' ? 'border-b-2 border-tellus-green' : 'opacity-60 hover:opacity-100'} transition-opacity`}
+          onClick={() => lang !== "pt" && toggleLang()}
+          className={`w-7 h-5 rounded-sm overflow-hidden transition-all duration-200 ${lang === "pt" ? "ring-2 ring-tellus-green ring-offset-1" : "opacity-50 hover:opacity-80"}`}
           aria-label="Português"
+          title="Português"
         >
-          🇵🇹 PT
+          <img
+            src="https://flagcdn.com/pt.svg"
+            alt="Portugal flag"
+            className="w-full h-full object-cover"
+            width={28}
+            height={20}
+          />
         </button>
         <span className="w-px h-4 bg-tellus-divider" />
         <button
-          onClick={() => lang !== 'en' && toggleLang()}
-          className={`font-body text-xs flex items-center gap-1 px-1 py-0.5 ${lang === 'en' ? 'border-b-2 border-tellus-green' : 'opacity-60 hover:opacity-100'} transition-opacity`}
+          onClick={() => lang !== "en" && toggleLang()}
+          className={`w-7 h-5 rounded-sm overflow-hidden transition-all duration-200 ${lang === "en" ? "ring-2 ring-tellus-green ring-offset-1" : "opacity-50 hover:opacity-80"}`}
           aria-label="English"
+          title="English"
         >
-          🇬🇧 EN
+          <img
+            src="https://flagcdn.com/gb.svg"
+            alt="United Kingdom flag"
+            className="w-full h-full object-cover"
+            width={28}
+            height={20}
+          />
         </button>
       </div>
     </div>

@@ -82,7 +82,7 @@ export const Navbar = () => {
       >
         <a href="#" className="flex-shrink-0">
           <img
-            src="/src/logos/logo_plus_tellus_plus_ecocentic.png"
+            src="/logo_plus_tellus_plus_ecocentic.png"
             alt="Tellus Ecocentric"
             className="w-32 h-auto"
           />

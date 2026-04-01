@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import LiquidEther from "@/components/LiquidEther";
 
 export const HeroSection = () => {
   const { t } = useLanguage();
@@ -21,13 +20,13 @@ export const HeroSection = () => {
 
   return (
     <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-background">
-      {/* LiquidEther background */}
+      {/* Hero image */}
       <div className="absolute inset-0 z-0">
-        <LiquidEther
-          colors={["#1db954", "#4ade80", "#a3e6b8"]}
-          autoDemo={true}
-          autoSpeed={0.4}
-          autoIntensity={2}
+        <img
+          src="/hero.jpg"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover opacity-40"
         />
       </div>
 

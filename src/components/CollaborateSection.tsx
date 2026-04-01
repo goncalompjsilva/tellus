@@ -61,7 +61,7 @@ export const CollaborateSection = () => {
             className="lg:w-[40%] scroll-reveal"
             style={{ transitionDelay: "150ms" }}
           >
-            <div className="border border-tellus-divider rounded-lg p-8 lg:p-12 letter-paper">
+            <div className="border border-tellus-divider rounded-lg p-8 lg:p-12 bg-tellus-green/10">
               {submitted ? (
                 <div className="text-center py-8">
                   <p className="font-display text-2xl text-tellus-green">
@@ -137,9 +137,9 @@ export const CollaborateSection = () => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full h-12 bg-tellus-terracotta text-primary-foreground font-body text-sm font-semibold rounded-md hover:bg-tellus-terracotta-hover transition-colors"
+                    className="w-full h-12 bg-tellus-green text-primary-foreground font-body text-sm font-semibold rounded-md hover:bg-tellus-green-dark transition-colors"
                   >
-                    {t("Enviar / Send", "Send / Enviar")}
+                    {t("Enviar", "Send")}
                   </button>
                 </form>
               )}

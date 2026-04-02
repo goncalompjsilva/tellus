@@ -40,6 +40,7 @@ const navLinks = [
   { pt: "Missão", en: "Mission", href: "#missao" },
   { pt: "Áreas", en: "Areas", href: "#areas" },
   { pt: "Projetos", en: "Projects", href: "#projetos" },
+  { pt: "Igualdade de Género", en: "Gender Equality", href: "#igualdade" },
   { pt: "Colaborar", en: "Collaborate", href: "#colaborar" },
   { pt: "Contacto", en: "Contact", href: "#contacto" },
 ];

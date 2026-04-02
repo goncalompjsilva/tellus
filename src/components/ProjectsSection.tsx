@@ -201,7 +201,7 @@ export const ProjectsSection = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <span className="eyebrow scroll-reveal">
-          {t("PROJETOS · PROJECTS", "PROJECTS")}
+          {t("PROJETOS", "PROJECTS")}
         </span>
         <h2 className="font-display text-4xl lg:text-[56px] font-medium mt-3 scroll-reveal">
           {t("Os nossos projetos-âncora", "Our anchor projects")}

@@ -90,9 +90,14 @@ export const CollaborateSection = () => {
                       "Entraremos em contacto brevemente.",
                       "We'll be in touch shortly.",
                     )}
-                  </p>                </div>
+                  </p>{" "}
+                </div>
               ) : (
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                >
                   <div>
                     <label
                       htmlFor="collab-name"

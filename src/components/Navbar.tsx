@@ -76,8 +76,10 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className={`sticky top-0 z-50 w-full h-16 bg-background border-b border-tellus-divider flex items-center justify-between px-5 md:px-8 lg:px-20 transition-shadow duration-300 ${
-          scrolled ? "shadow-[0_2px_12px_rgba(45,134,83,0.08)]" : ""
+        className={`fixed top-0 z-50 w-full h-16 flex items-center justify-between px-5 md:px-8 lg:px-20 transition-all duration-300 ${
+          scrolled
+            ? "bg-background border-b border-tellus-divider shadow-[0_2px_12px_rgba(45,134,83,0.08)]"
+            : "bg-transparent border-b border-transparent"
         }`}
       >
         <a href="#" className="flex-shrink-0">

@@ -217,10 +217,7 @@ const AreaRow = ({ area, index }: { area: AreaData; index: number }) => {
 
   const textContent = (
     <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 lg:py-0">
-      <div
-        className="inline-block w-12 h-1 mb-4"
-        style={{ backgroundColor: area.accentColor }}
-      />
+      <div className="inline-block w-12 h-1 mb-4 bg-tellus-green" />
       <span className="eyebrow mb-2">
         {area.num} · {t(area.labelPt, area.labelEn)}
       </span>
@@ -303,8 +300,8 @@ const AreaRow = ({ area, index }: { area: AreaData; index: number }) => {
         </>
       ) : (
         <>
-          <div className="order-2 lg:order-1">{textContent}</div>
-          <div className="order-1 lg:order-2">{imageContent}</div>
+          <div className="order-2 lg:order-1 flex">{textContent}</div>
+          <div className="order-1 lg:order-2 flex">{imageContent}</div>
         </>
       )}
     </div>

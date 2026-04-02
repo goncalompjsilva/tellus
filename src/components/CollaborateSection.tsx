@@ -1,9 +1,13 @@
-import { useState, FormEvent } from "react";
+import { useState, useRef, FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const CollaborateSection = () => {
   const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [sending, setSending] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const tags = [
     { pt: "Entidades públicas", en: "Public entities" },
@@ -16,10 +20,24 @@ export const CollaborateSection = () => {
     { pt: "Redes internacionais", en: "International networks" },
   ];
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    if (!formRef.current) return;
+    setSending(true);
+    setError(false);
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
+      );
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -72,10 +90,9 @@ export const CollaborateSection = () => {
                       "Entraremos em contacto brevemente.",
                       "We'll be in touch shortly.",
                     )}
-                  </p>
-                </div>
+                  </p>                </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label
                       htmlFor="collab-name"
@@ -135,11 +152,20 @@ export const CollaborateSection = () => {
                       className="input-underline resize-none"
                     />
                   </div>
+                  {error && (
+                    <p className="font-body text-xs text-red-500 text-center">
+                      {t(
+                        "Ocorreu um erro. Tente novamente.",
+                        "Something went wrong. Please try again.",
+                      )}
+                    </p>
+                  )}
                   <button
                     type="submit"
-                    className="w-full h-12 bg-tellus-green text-primary-foreground font-body text-sm font-semibold rounded-md hover:bg-tellus-green-dark transition-colors"
+                    disabled={sending}
+                    className="w-full h-12 bg-tellus-green text-primary-foreground font-body text-sm font-semibold rounded-md hover:bg-tellus-green-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {t("Enviar", "Send")}
+                    {sending ? t("A enviar…", "Sending…") : t("Enviar", "Send")}
                   </button>
                 </form>
               )}

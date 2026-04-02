@@ -1,4 +1,4 @@
-import { TellusLogo } from "./TellusLogo";
+import tellusLogo from "@/logos/tellus.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Footer = () => {
@@ -25,12 +25,7 @@ export const Footer = () => {
   return (
     <footer className="relative bg-tellus-green-dark text-primary-foreground">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16">
-        <div className="mb-10">
-          <TellusLogo color="white" className="h-8 w-auto" />
-          <p className="font-body text-base text-primary-foreground/80 mt-2 tracking-wide">
-            Ecocentric Lab
-          </p>
-        </div>
+        <div className="mb-6"></div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           <div>

@@ -12,7 +12,7 @@ export const HeroSection = () => {
   }, []);
 
   const stats = [
-    { num: "6", pt: "Áreas de Intervenção", en: "Areas of Intervention" },
+    { num: "5", pt: "Áreas de Intervenção", en: "Areas of Intervention" },
     { num: "6", pt: "Projetos-Âncora", en: "Anchor Projects" },
     { num: "5+", pt: "Domínios de Expertise", en: "Expertise Domains" },
     { num: "100%", pt: "Independente", en: "Independent" },
@@ -37,7 +37,7 @@ export const HeroSection = () => {
             [
               ["Ciência.", "Science."],
               ["Ação.", "Action."],
-              ["Terra.", "Earth."],
+              ["Sustentabilidade.", "Sustainability."],
             ] as const
           ).map(([pt, en], i) => (
             <span
@@ -61,8 +61,8 @@ export const HeroSection = () => {
           style={{ transitionDelay: "500ms" }}
         >
           {t(
-            "Uma associação independente dedicada à defesa do ambiente, da natureza e do bem-estar de todas as formas de vida. Ecocêntricos por convicção, rigorosos por princípio.",
-            "An independent association dedicated to the defense of the environment, nature and the well-being of all forms of life. Ecocentric by conviction, rigorous by principle.",
+            "Uma associação independente dedicada à defesa do ambiente, da natureza e à preservação da integridade dos ecossistemas. Ecocêntricos por convicção, rigorosos por princípio.",
+            "An independent association dedicated to the defense of the environment, nature and the preservation of the integrity of ecosystems. Ecocentric by conviction, rigorous by principle.",
           )}
         </p>
 

@@ -27,8 +27,8 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16">
         <div className="mb-10">
           <TellusLogo color="white" className="h-8 w-auto" />
-          <p className="font-display italic text-lg text-primary-foreground/80 mt-3">
-            {t("Ecocêntricos por convicção.", "Ecocentric by conviction.")}
+          <p className="font-body text-base text-primary-foreground/80 mt-2 tracking-wide">
+            Ecocentric Lab
           </p>
         </div>
 
@@ -72,25 +72,14 @@ export const Footer = () => {
               {t("Contacto", "Contact")}
             </h4>
             <a
-              href="mailto:contacto@tellus.pt"
+              href="mailto:contact@tellusecocentriclab.com"
               className="font-body text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors block"
             >
-              contacto@tellus.pt
+              contact@tellusecocentriclab.com
             </a>
             <p className="font-body text-sm text-primary-foreground/60 mt-1">
               Portugal
             </p>
-            <div className="flex gap-4 mt-4">
-              {["LinkedIn", "Instagram", "Facebook"].map((s) => (
-                <a
-                  key={s}
-                  href="#"
-                  className="font-body text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors"
-                >
-                  {s}
-                </a>
-              ))}
-            </div>
           </div>
         </div>
 

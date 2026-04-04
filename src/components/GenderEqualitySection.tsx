@@ -5,20 +5,24 @@ export const GenderEqualitySection = () => {
 
   const objectives = [
     {
-      pt: "Garantir ambiente de trabalho livre de discriminação",
-      en: "Ensure a discrimination-free work environment",
+      pt: "Garantir ambiente de trabalho livre de discriminação e de assédio",
+      en: "Ensure a discrimination-free and harassment-free work environment",
     },
     {
-      pt: "Promover equilíbrio de género nos processos de decisão",
-      en: "Promote gender balance in decision-making",
+      pt: "Promover equilíbrio de género nos processos de decisão e equipas",
+      en: "Promote gender balance in decision-making and teams",
     },
     {
-      pt: "Integrar a dimensão de género nos projetos",
-      en: "Integrate gender dimension in projects",
+      pt: "Integrar a dimensão de género nos projetos sempre que relevante",
+      en: "Integrate gender dimension in projects whenever relevant",
     },
     {
-      pt: "Fomentar cultura organizacional inclusiva",
-      en: "Foster inclusive organizational culture",
+      pt: "Fomentar cultura organizacional inclusiva e de respeito pela diversidade",
+      en: "Foster inclusive organizational culture and respect for diversity",
+    },
+    {
+      pt: "Assegurar práticas de sensibilização e melhoria contínua em matéria de igualdade",
+      en: "Ensure awareness practices and continuous improvement in matters of equality",
     },
   ];
 
@@ -46,8 +50,14 @@ export const GenderEqualitySection = () => {
             </h2>
             <p className="font-body text-[17px] leading-[1.75] text-white/70 mt-6">
               {t(
-                "A TELLUS está comprometida com a promoção da igualdade de género em todas as suas áreas, enquanto princípio essencial de uma organização inclusiva, justa e sustentável.",
-                "TELLUS is committed to promoting gender equality in all its areas, as an essential principle of an inclusive, fair and sustainable organization.",
+                "A TELLUS está comprometida com a promoção da igualdade de género em todas as suas áreas, enquanto princípio essencial de uma organização inclusiva, justa e sustentável. Integramos a perspetiva de género na nossa ação, promovendo a igualdade de oportunidades e a participação equitativa de todas as pessoas, independentemente do género.",
+                "TELLUS is committed to promoting gender equality in all its areas, as an essential principle of an inclusive, fair and sustainable organization. We integrate the gender perspective into our actions, promoting equal opportunities and equitable participation for all individuals, regardless of gender.",
+              )}
+              <br className="my-4" />
+              <br className="my-4" />
+              {t(
+                "A TELLUS Ecocentric Lab acredita que a igualdade de género é fundamental para a qualidade, inovação e impacte das suas ações, contribuindo para uma sociedade mais equilibrada e sustentável.",
+                "TELLUS Ecocentric Lab believes that gender equality is fundamental to the quality, innovation, and impact of its actions, contributing to a more balanced and sustainable society.",
               )}
             </p>
           </div>
@@ -55,7 +65,7 @@ export const GenderEqualitySection = () => {
           {/* Right: objectives */}
           <div className="scroll-reveal" style={{ transitionDelay: "150ms" }}>
             <span className="font-body text-xs uppercase tracking-[0.15em] text-tellus-green-light">
-              {t("OBJETIVOS", "OBJECTIVES")}
+              {t("COMPROMETEMO-NOS A", "WE COMMIT TO")}
             </span>
             <ul className="mt-6 space-y-5">
               {objectives.map((obj) => (

@@ -1,5 +1,12 @@
+import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import projectImg from "@/assets/project-criar-raizes.jpg";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 interface ProjectCard {
   acronym: string;
@@ -9,8 +16,12 @@ interface ProjectCard {
   subtitleEn: string;
   descPt: string;
   descEn: string;
-  objectivesPt: string[];
-  objectivesEn: string[];
+  fullDescPt?: string;
+  fullDescEn?: string;
+  objectivesPt?: string[];
+  objectivesEn?: string[];
+  actionsPt?: string[];
+  actionsEn?: string[];
   targetPt: string[];
   targetEn: string[];
 }
@@ -23,9 +34,9 @@ const row2: ProjectCard[] = [
     subtitlePt: "Ação Climática Local",
     subtitleEn: "Local Climate Action",
     descPt:
-      "Um living lab que testa soluções reais para adaptação climática em contexto local, criando modelos replicáveis para municípios e comunidades.",
+      "Um living lab que testa soluções reais para adaptação climática em contexto local.",
     descEn:
-      "A living lab that tests real solutions for climate adaptation in local contexts, creating replicable models for municipalities and communities.",
+      "A living lab that tests real solutions for climate adaptation in local contexts.",
     objectivesPt: [
       "Reduzir emissões locais",
       "Testar soluções baseadas na natureza",
@@ -38,6 +49,18 @@ const row2: ProjectCard[] = [
       "Create replicable models",
       "Empower communities",
     ],
+    actionsPt: [
+      "Desenvolvimento de planos climáticos locais",
+      "Instalação de infraestruturas verdes",
+      "Monitorização da pegada de carbono",
+      "Workshops sobre resiliência climática",
+    ],
+    actionsEn: [
+      "Development of local climate plans",
+      "Installation of green infrastructure",
+      "Carbon footprint monitoring",
+      "Workshops on climate resilience",
+    ],
     targetPt: ["Municípios", "Empresas", "Cidadãos"],
     targetEn: ["Municipalities", "Businesses", "Citizens"],
   },
@@ -48,9 +71,9 @@ const row2: ProjectCard[] = [
     subtitlePt: "Economia Circular",
     subtitleEn: "Circular Economy",
     descPt:
-      "Projeto focado na transição para modelos circulares, reduzindo resíduos e promovendo novos hábitos de consumo responsável.",
+      "Projeto focado na transição para modelos circulares, reduzindo resíduos e promovendo novos hábitos de consumo.",
     descEn:
-      "Project focused on transitioning to circular models, reducing waste and promoting new responsible consumption habits.",
+      "Project focused on transitioning to circular models, reducing waste and promoting new consumption habits.",
     objectivesPt: [
       "Reduzir produção de resíduos",
       "Promover reutilização e reparação",
@@ -63,31 +86,35 @@ const row2: ProjectCard[] = [
       "Raise awareness for conscious consumption",
       "Support sustainable businesses",
     ],
+    actionsPt: [
+      "Criação de eco-hubs locais",
+      "Oficinas de reparação e upcycling",
+      "Programas 'bairro zero desperdício'",
+      "Guias de boas práticas",
+    ],
+    actionsEn: [
+      "Creation of local eco-hubs",
+      "Repair and upcycling workshops",
+      "'Zero waste neighbourhood' programs",
+      "Good practice guides",
+    ],
     targetPt: ["Famílias", "Escolas", "PMEs", "Comunidades"],
     targetEn: ["Families", "Schools", "SMEs", "Communities"],
   },
   {
     acronym: "CoExistir",
-    namePt: "Bem-Estar Animal e Convivência Harmoniosa",
-    nameEn: "Animal Welfare and Harmonious Coexistence",
+    namePt: "Programa de Bem-Estar Animal e Convivência Harmoniosa",
+    nameEn: "Program for Animal Welfare and Harmonious Coexistence",
     subtitlePt: "Bem-Estar Animal",
     subtitleEn: "Animal Welfare",
     descPt:
       "Promove uma abordagem integrada ao bem-estar animal e à convivência sustentável entre humanos e animais.",
     descEn:
       "Promotes an integrated approach to animal welfare and sustainable coexistence between humans and animals.",
-    objectivesPt: [
-      "Promover políticas de proteção animal",
-      "Combater abandono e maus-tratos",
-      "Educar para a convivência responsável",
-      "Construir comunidades mais inclusivas",
-    ],
-    objectivesEn: [
-      "Promote animal protection policies",
-      "Combat abandonment and mistreatment",
-      "Educate for responsible coexistence",
-      "Build more inclusive communities",
-    ],
+    fullDescPt:
+      "O programa CoExistir promove uma abordagem integrada ao bem-estar animal e à convivência sustentável entre humanos e animais, reconhecendo-os como parte interdependente dos ecossistemas e das comunidades. Parte do princípio de que uma sociedade verdadeiramente resiliente e sustentável é aquela que assegura relações éticas, responsáveis e equilibradas com todas as formas de vida.||Este conceito assenta na valorização do respeito pela vida animal, na promoção da responsabilidade individual e coletiva e na construção de práticas de coexistência que minimizem conflitos e maximizem o bem-estar comum. Assim, pretende-se ultrapassar uma visão utilitarista dos animais, reforçando uma perspetiva de integração, proteção e equilíbrio.||O programa atua na prevenção de problemas associados ao abandono, à sobrepopulação e ao conflito humano-animal, ao mesmo tempo que incentiva comportamentos responsáveis de tutela, cuidado e proteção. Paralelamente, promove a sensibilização da comunidade para a importância dos animais na biodiversidade, na saúde dos ecossistemas e na qualidade de vida urbana e rural.||O CoExistir aposta também na educação e na mudança de comportamentos, através de ações formativas, campanhas de sensibilização e iniciativas comunitárias que incentivem a empatia, o respeito e a convivência harmoniosa. Desta forma, contribui para a criação de comunidades mais inclusivas, conscientes e sustentáveis, onde humanos e animais possam coexistir de forma equilibrada e benéfica para ambos.",
+    fullDescEn:
+      "The CoExistir program promotes an integrated approach to animal welfare and sustainable coexistence between humans and animals, recognizing them as an interdependent part of ecosystems and communities. It is grounded in the principle that a truly resilient and sustainable society is one that ensures ethical, responsible, and balanced relationships with all forms of life.||This concept is based on valuing respect for animal life, promoting individual and collective responsibility, and building coexistence practices that minimize conflicts and maximize common well-being. The aim is to move beyond a utilitarian view of animals, reinforcing a perspective of integration, protection, and balance.||The program works to prevent problems associated with abandonment, overpopulation, and human-animal conflict, while encouraging responsible behaviors of guardianship, care, and protection. It also promotes community awareness of the importance of animals in biodiversity, ecosystem health, and urban and rural quality of life.||CoExistir also invests in education and behavior change through training activities, awareness campaigns, and community initiatives that encourage empathy, respect, and harmonious coexistence. In this way, it contributes to the creation of more inclusive, conscious, and sustainable communities, where humans and animals can coexist in a balanced and mutually beneficial way.",
     targetPt: ["Escolas", "Municípios", "Associações de proteção animal"],
     targetEn: ["Schools", "Municipalities", "Animal protection associations"],
   },
@@ -101,9 +128,9 @@ const row3: ProjectCard[] = [
     subtitlePt: "Património e Turismo",
     subtitleEn: "Heritage and Tourism",
     descPt:
-      "Integra conservação ambiental e valorização cultural, promovendo a identidade territorial e o turismo sustentável.",
+      "Integra conservação ambiental e valorização cultural, promovendo a identidade territorial e a sustentabilidade.",
     descEn:
-      "Integrates environmental conservation and cultural valorization, promoting territorial identity and sustainable tourism.",
+      "Integrates environmental conservation and cultural valorization, promoting territorial identity and sustainability.",
     objectivesPt: [
       "Proteger património natural e construído",
       "Promover turismo sustentável",
@@ -116,6 +143,18 @@ const row3: ProjectCard[] = [
       "Valorize local identity",
       "Engage communities",
     ],
+    actionsPt: [
+      "Criação de roteiros ecológicos e culturais",
+      "Inventários participativos",
+      "Projetos de reabilitação sustentável",
+      "Eventos e experiências imersivas",
+    ],
+    actionsEn: [
+      "Creation of ecological and cultural itineraries",
+      "Participatory inventories",
+      "Sustainable rehabilitation projects",
+      "Events and immersive experiences",
+    ],
     targetPt: ["Turistas", "Comunidades locais", "Autarquias", "Escolas"],
     targetEn: ["Tourists", "Local communities", "Municipalities", "Schools"],
   },
@@ -126,9 +165,9 @@ const row3: ProjectCard[] = [
     subtitlePt: "Cidadania Ambiental",
     subtitleEn: "Environmental Citizenship",
     descPt:
-      "Programa transversal que promove literacia ambiental e participação cívica informada, formando agentes de mudança capazes de influenciar políticas públicas.",
+      "Programa transversal que promove literacia ambiental e participação cívica informada.",
     descEn:
-      "Cross-cutting program that promotes environmental literacy and informed civic participation, forming change agents capable of influencing public policies.",
+      "Cross-cutting program that promotes environmental literacy and informed civic participation.",
     objectivesPt: [
       "Aumentar conhecimento ambiental",
       "Promover cidadania ativa",
@@ -141,6 +180,18 @@ const row3: ProjectCard[] = [
       "Train change agents",
       "Influence public policies",
     ],
+    actionsPt: [
+      "Programas educativos",
+      "Simulações de assembleias cidadãs",
+      "Campanhas de sensibilização",
+      "Plataformas digitais participativas",
+    ],
+    actionsEn: [
+      "Educational programs",
+      "Citizen assembly simulations",
+      "Awareness campaigns",
+      "Participatory digital platforms",
+    ],
     targetPt: ["Jovens", "Estudantes", "Cidadãos", "Decisores"],
     targetEn: ["Youth", "Students", "Citizens", "Decision-makers"],
   },
@@ -148,46 +199,158 @@ const row3: ProjectCard[] = [
 
 const CardComponent = ({ project }: { project: ProjectCard }) => {
   const { t } = useLanguage();
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="border border-tellus-divider rounded-md p-6 lg:p-8 flex flex-col scroll-reveal">
-      <span className="eyebrow">{project.acronym}</span>
-      <h4 className="font-display text-2xl font-medium mt-2">
-        {t(project.namePt, project.nameEn)}
-      </h4>
-      <p className="font-body text-[13px] italic text-tellus-muted mt-1">
-        {t(project.subtitlePt, project.subtitleEn)}
-      </p>
-      <p className="font-body text-[15px] leading-[1.7] text-tellus-body mt-4">
-        {t(project.descPt, project.descEn)}
-      </p>
-      <div className="mt-4 space-y-1 flex-1">
-        {t(project.objectivesPt.join("||"), project.objectivesEn.join("||"))
-          .split("||")
-          .map((obj, i) => (
-            <p key={i} className="font-body text-sm text-tellus-body">
-              → {obj}
+    <>
+      <div className="border border-tellus-divider rounded-md p-6 lg:p-8 flex flex-col scroll-reveal">
+        <span className="eyebrow">{project.acronym}</span>
+        <h4 className="font-display text-2xl font-medium mt-2">
+          {t(project.namePt, project.nameEn)}
+        </h4>
+        <p className="font-body text-[13px] italic text-tellus-muted mt-1">
+          {t(project.subtitlePt, project.subtitleEn)}
+        </p>
+        <p className="font-body text-[15px] leading-[1.7] text-tellus-body mt-4">
+          {t(project.descPt, project.descEn)}
+        </p>
+        {project.objectivesPt && project.objectivesPt.length > 0 && (
+          <div className="mt-4 space-y-1 flex-1">
+            {t(
+              project.objectivesPt.join("||"),
+              project.objectivesEn!.join("||"),
+            )
+              .split("||")
+              .map((obj, i) => (
+                <p key={i} className="font-body text-sm text-tellus-body">
+                  → {obj}
+                </p>
+              ))}
+          </div>
+        )}
+        {project.actionsPt && project.actionsPt.length > 0 && (
+          <div className="mt-4">
+            <p className="font-body text-xs uppercase tracking-[0.15em] text-tellus-muted">
+              {t("AÇÕES PRINCIPAIS", "MAIN ACTIONS")}
             </p>
-          ))}
+            <div className="mt-2 space-y-1">
+              {t(project.actionsPt.join("||"), project.actionsEn!.join("||"))
+                .split("||")
+                .map((action, i) => (
+                  <p key={i} className="font-body text-sm text-tellus-body">
+                    → {action}
+                  </p>
+                ))}
+            </div>
+          </div>
+        )}
+        <div className="flex flex-wrap gap-2 mt-4">
+          {t(project.targetPt.join("||"), project.targetEn.join("||"))
+            .split("||")
+            .map((tag, i) => (
+              <span
+                key={i}
+                className="bg-tellus-green-xlight text-tellus-green-dark font-body text-xs px-2.5 py-1 rounded"
+              >
+                {tag}
+              </span>
+            ))}
+        </div>
+        <button
+          onClick={() => setOpen(true)}
+          className="font-body text-[13px] text-tellus-green mt-4 nav-link-animated inline-block text-left"
+        >
+          {t("Saber mais →", "Learn more →")}
+        </button>
       </div>
-      <div className="flex flex-wrap gap-2 mt-4">
-        {t(project.targetPt.join("||"), project.targetEn.join("||"))
-          .split("||")
-          .map((tag, i) => (
-            <span
-              key={i}
-              className="bg-tellus-green-xlight text-tellus-green-dark font-body text-xs px-2.5 py-1 rounded"
-            >
-              {tag}
-            </span>
-          ))}
-      </div>
-      <a
-        href="#colaborar"
-        className="font-body text-[13px] text-tellus-green mt-4 nav-link-animated inline-block"
-      >
-        {t("Saber mais →", "Learn more →")}
-      </a>
-    </div>
+
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <span className="eyebrow">{project.acronym}</span>
+            <DialogTitle className="font-display text-2xl font-medium mt-2">
+              {t(project.namePt, project.nameEn)}
+            </DialogTitle>
+            <p className="font-body text-[13px] italic text-tellus-muted mt-1">
+              {t(project.subtitlePt, project.subtitleEn)}
+            </p>
+          </DialogHeader>
+          <div className="mt-4 space-y-4">
+            {project.fullDescPt ? (
+              t(project.fullDescPt, project.fullDescEn ?? "")
+                .split("||")
+                .map((para, i) => (
+                  <p
+                    key={i}
+                    className="font-body text-[15px] leading-[1.7] text-tellus-body"
+                  >
+                    {para}
+                  </p>
+                ))
+            ) : (
+              <p className="font-body text-[15px] leading-[1.7] text-tellus-body">
+                {t(project.descPt, project.descEn)}
+              </p>
+            )}
+            {project.objectivesPt && project.objectivesPt.length > 0 && (
+              <div>
+                <p className="font-body text-xs uppercase tracking-[0.15em] text-tellus-muted mb-2">
+                  {t("OBJETIVOS", "OBJECTIVES")}
+                </p>
+                <div className="space-y-1">
+                  {t(
+                    project.objectivesPt.join("||"),
+                    project.objectivesEn!.join("||"),
+                  )
+                    .split("||")
+                    .map((obj, i) => (
+                      <p key={i} className="font-body text-sm text-tellus-body">
+                        → {obj}
+                      </p>
+                    ))}
+                </div>
+              </div>
+            )}
+            {project.actionsPt && project.actionsPt.length > 0 && (
+              <div>
+                <p className="font-body text-xs uppercase tracking-[0.15em] text-tellus-muted mb-2">
+                  {t("AÇÕES PRINCIPAIS", "MAIN ACTIONS")}
+                </p>
+                <div className="space-y-1">
+                  {t(
+                    project.actionsPt.join("||"),
+                    project.actionsEn!.join("||"),
+                  )
+                    .split("||")
+                    .map((action, i) => (
+                      <p key={i} className="font-body text-sm text-tellus-body">
+                        → {action}
+                      </p>
+                    ))}
+                </div>
+              </div>
+            )}
+            <div>
+              <p className="font-body text-xs uppercase tracking-[0.15em] text-tellus-muted mb-2">
+                {t("PÚBLICO-ALVO", "TARGET AUDIENCE")}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {t(project.targetPt.join("||"), project.targetEn.join("||"))
+                  .split("||")
+                  .map((tag, i) => (
+                    <span
+                      key={i}
+                      className="bg-tellus-green-xlight text-tellus-green-dark font-body text-xs px-2.5 py-1 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
@@ -243,6 +406,21 @@ export const ProjectsSection = () => {
                 .map((obj, i) => (
                   <p key={i} className="font-body text-sm opacity-90">
                     → {obj}
+                  </p>
+                ))}
+            </div>
+            <p className="font-body text-xs uppercase tracking-[0.15em] opacity-80 mt-6">
+              {t("AÇÕES PRINCIPAIS", "MAIN ACTIONS")}
+            </p>
+            <div className="mt-2 space-y-1">
+              {t(
+                "Plantação de espécies nativas||Remoção de espécies invasoras||Criação de micro-reservas urbanas||Programas de ciência cidadã",
+                "Planting native species||Removal of invasive species||Creation of urban micro-reserves||Citizen science programs",
+              )
+                .split("||")
+                .map((action, i) => (
+                  <p key={i} className="font-body text-sm opacity-90">
+                    → {action}
                   </p>
                 ))}
             </div>

@@ -15,9 +15,18 @@ export const CollaborateSection = () => {
       pt: "Organizações da sociedade civil",
       en: "Civil society organizations",
     },
-    { pt: "Universidades e investigação", en: "Universities and research" },
-    { pt: "Empresas sustentáveis", en: "Sustainable businesses" },
-    { pt: "Redes internacionais", en: "International networks" },
+    {
+      pt: "Universidades e centros de investigação",
+      en: "Universities and research centers",
+    },
+    {
+      pt: "Empresas comprometidas com a sustentabilidade",
+      en: "Businesses committed to sustainability",
+    },
+    {
+      pt: "Redes e plataformas  internacionais",
+      en: "International networks and platforms",
+    },
   ];
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {

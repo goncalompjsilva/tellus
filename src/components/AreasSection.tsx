@@ -3,7 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import areaBiodiversity from "@/assets/area-biodiversity.jpg";
 import areaSustainability from "@/assets/area-sustainability.jpg";
 import areaClimate from "@/assets/area-climate.jpg";
-import areaAnimal from "@/assets/area-animal.jpg";
+import areaAnimal from "@/assets/DogAndCat.jpg";
 import areaHeritage from "@/assets/area-heritage.jpg";
 
 interface AreaData {
@@ -30,11 +30,12 @@ const areas: AreaData[] = [
     titlePt: "Conservação da Natureza e Biodiversidade",
     titleEn: "Nature Conservation and Biodiversity",
     descPt:
-      "A biodiversidade é a base do equilíbrio dos ecossistemas e do bem-estar humano. A TELLUS atua na proteção de habitats naturais e espécies, promovendo soluções baseadas na ciência e na participação comunitária.",
+      "A biodiversidade é a base do equilíbrio dos ecossistemas e do bem-estar humano. A sua perda representa uma das maiores ameaças globais. A TELLUS Ecocentric Lab atua na proteção de habitats naturais e espécies, promovendo soluções baseadas na ciência e na participação comunitária.",
     descEn:
-      "Biodiversity is the foundation of ecosystem balance and human well-being. TELLUS works to protect natural habitats and species, promoting science-based and community-driven solutions.",
+      "Biodiversity is the foundation of ecosystem balance and human well-being. Its loss represents one of the greatest global threats. TELLUS Ecocentric Lab works to protect natural habitats and species, promoting science-based and community-driven solutions.",
     objectivesPt: [
       "Apoiar decisores com recomendações baseadas em evidências",
+      "Mapear e analisar fluxos de informação relacionados com sustentabilidade, identificando padrões de desinformação",
       "Preservar habitats e ecossistemas sensíveis",
       "Proteger espécies ameaçadas",
       "Promover a conectividade ecológica",
@@ -42,24 +43,25 @@ const areas: AreaData[] = [
     ],
     objectivesEn: [
       "Support decision-makers with evidence-based recommendations",
+      "Map and analyze information flows related to sustainability, identifying misinformation patterns",
       "Preserve sensitive habitats and ecosystems",
       "Protect endangered species",
       "Promote ecological connectivity",
       "Integrate local communities in conservation",
     ],
     initiativesPt: [
-      "Programas de monitorização de biodiversidade participativa",
+      "Programas de monitorização de biodiversidade participativa (citizen science) ",
       "Criação de micro-reservas urbanas",
-      "Ações de restauro ecológico",
+      "Ações de restauro ecológico (plantação de espécies autóctones, controlo de invasoras)",
       "Projetos de corredores ecológicos locais",
-      "Inventários de fauna e flora",
+      "Inventários de fauna e flora em colaboração com entidades locais ",
     ],
     initiativesEn: [
-      "Participatory biodiversity monitoring programs",
+      "Participatory biodiversity monitoring programs (citizen science)",
       "Creation of urban micro-reserves",
-      "Ecological restoration actions",
+      "Ecological restoration actions (planting native species, controlling invasive species)",
       "Local ecological corridor projects",
-      "Fauna and flora inventories",
+      "Fauna and flora inventories in collaboration with local entities",
     ],
     image: areaBiodiversity,
     accentColor: "#48B87A",
@@ -71,9 +73,9 @@ const areas: AreaData[] = [
     titlePt: "Sustentabilidade e Recursos Naturais",
     titleEn: "Sustainability and Natural Resources",
     descPt:
-      "A utilização excessiva dos recursos naturais exige uma transição para modelos sustentáveis. A TELLUS promove práticas que conciliem desenvolvimento económico com responsabilidade ambiental.",
+      "A utilização excessiva dos recursos naturais exige uma transição para modelos sustentáveis. A TELLUS Ecocentric Lab promove práticas que conciliem desenvolvimento económico com responsabilidade ambiental.",
     descEn:
-      "The excessive use of natural resources requires a transition to sustainable models. TELLUS promotes practices that reconcile economic development with environmental responsibility.",
+      "The excessive use of natural resources requires a transition to sustainable models. TELLUS Ecocentric Lab promotes practices that reconcile economic development with environmental responsibility.",
     objectivesPt: [
       "Promover o uso eficiente de recursos",
       "Incentivar a economia circular",
@@ -88,15 +90,17 @@ const areas: AreaData[] = [
     ],
     initiativesPt: [
       "Programas de eco-literacia para escolas e empresas",
-      "Projetos de redução de resíduos",
+      "Projetos de redução de resíduos (zero waste communities)",
+      "Criação de guias práticos de sustentabilidade doméstica e empresarial",
       "Oficinas de reutilização e upcycling",
-      "Auditorias ambientais participativas",
+      "Auditorias ambientais participativas em organizações",
     ],
     initiativesEn: [
       "Eco-literacy programs for schools and businesses",
-      "Waste reduction projects",
+      "Waste reduction projects (zero waste communities)",
+      "Creation of practical guides for domestic and business sustainability",
       "Reuse and upcycling workshops",
-      "Participatory environmental audits",
+      "Participatory environmental audits in organizations",
     ],
     image: areaSustainability,
     accentColor: "#2D8653",
@@ -108,9 +112,9 @@ const areas: AreaData[] = [
     titlePt: "Ação Climática",
     titleEn: "Climate Action",
     descPt:
-      "As alterações climáticas exigem respostas urgentes. A TELLUS defende uma abordagem integrada, centrada na articulação entre soluções baseadas na natureza, capacitação social e transformação comportamental.",
+      "As alterações climáticas exigem respostas urgentes. A TELLUS Ecocentric Lab defende uma abordagem integrada de resposta à emergência climática, centrada na articulação entre soluções baseadas na natureza, capacitação social e transformação comportamental. Parte-se do reconhecimento de que os desafios climáticos exigem não apenas intervenções técnicas, mas também mudanças profundas ao nível das perceções, atitudes e práticas das comunidades.",
     descEn:
-      "Climate change demands urgent responses. TELLUS advocates for an integrated approach, centered on nature-based solutions, social empowerment and behavioral transformation.",
+      "Climate change demands urgent responses. TELLUS Ecocentric Lab advocates for an integrated approach to climate emergency response, centered on the articulation between nature-based solutions, social empowerment, and behavioral transformation. It is based on the recognition that climate challenges require not only technical interventions but also profound changes in community perceptions, attitudes, and practices.",
     objectivesPt: [
       "Promover soluções baseadas na natureza",
       "Aumentar a resiliência das comunidades",
@@ -124,16 +128,18 @@ const areas: AreaData[] = [
     initiativesPt: [
       "Desenvolvimento de planos locais de ação climática participativos",
       "Análise de Comportamento, Perceção e Vulnerabilidade",
-      "Projetos de sequestro de carbono",
+      "Projetos de sequestro de carbono (florestação, regeneração de solos)",
       "Campanhas de sensibilização climática",
-      "Living labs para alteração de comportamentos",
+      "Workshops sobre adaptação a eventos extremos",
+      "Criação de laboratórios vivos (living labs) para alteração de comportamentos",
     ],
     initiativesEn: [
       "Development of participatory local climate action plans",
       "Behavior, Perception and Vulnerability Analysis",
-      "Carbon sequestration projects",
+      "Carbon sequestration projects (afforestation, soil regeneration)",
       "Climate awareness campaigns",
-      "Living labs for behavior change",
+      "Workshops on adaptation to extreme events",
+      "Creation of living labs for behavior change",
     ],
     image: areaClimate,
     accentColor: "#2D8653",
@@ -145,29 +151,33 @@ const areas: AreaData[] = [
     titlePt: "Proteção e Bem-Estar Animal",
     titleEn: "Animal Protection and Welfare",
     descPt:
-      "Reconhecendo os animais como seres sencientes, a TELLUS promove o aprofundamento desse reconhecimento legal e a convivência equilibrada entre humanos e não humanos.",
+      "Partindo da evidência científica, reconhecida juridicamente por diversos Estados, que os animais são seres sencientes e dignos de consideração, a TELLUS Ecocentric Lab pretende promover o aprofundamento desse reconhecimento e a convivência equilibrada entre humanos e não humanos. ",
     descEn:
-      "Recognizing animals as sentient beings, TELLUS promotes the deepening of this legal recognition and balanced coexistence between humans and non-humans.",
+      "Based on scientific evidence, legally recognized by several states, that animals are sentient beings worthy of consideration, TELLUS Ecocentric Lab aims to promote the deepening of this recognition and the balanced coexistence between humans and non-humans.",
     objectivesPt: [
       "Promover políticas públicas de proteção dos animais",
       "Defender o bem-estar animal",
       "Sensibilizar para os direitos dos animais",
+      "Promover práticas responsáveis",
       "Combater abandono e maus-tratos",
     ],
     objectivesEn: [
       "Promote public animal protection policies",
       "Defend animal welfare",
       "Raise awareness about animal rights",
+      "Promote responsible practices",
       "Combat abandonment and mistreatment",
     ],
     initiativesPt: [
       "Programas de educação para o respeito pelos animais",
       "Parcerias com associações locais de proteção animal",
+      "Criação de guias de boas práticas para convivência com animais urbanos",
       "Observatório de denúncia e monitorização de maus-tratos",
     ],
     initiativesEn: [
       "Education programs for animal respect",
       "Partnerships with local animal protection associations",
+      "Creation of guides for best practices in urban animal coexistence",
       "Observatory for reporting and monitoring mistreatment",
     ],
     image: areaAnimal,
@@ -186,17 +196,20 @@ const areas: AreaData[] = [
     objectivesPt: [
       "Valorizar paisagens e património local",
       "Promover a conservação integrada",
+      "Sensibilizar para a importância cultural e ambiental",
       "Incentivar o turismo sustentável",
     ],
     objectivesEn: [
       "Valorize landscapes and local heritage",
       "Promote integrated conservation",
+      "Raise awareness about cultural and environmental importance",
       "Incentivize sustainable tourism",
     ],
     initiativesPt: [
       "Inventários participativos de património local",
       "Projetos de valorização de paisagens culturais",
       "Roteiros ecológicos e culturais",
+      "Campanhas de defesa de património ameaçado",
       "Workshops sobre reabilitação sustentável",
     ],
     initiativesEn: [
